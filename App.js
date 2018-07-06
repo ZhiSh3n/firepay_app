@@ -9,11 +9,12 @@ import {
 
 // Import navigation
 import { createBottomNavigator } from 'react-navigation';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 
 // Import screens
-import LoginScreen from './screens/LoginScreen';
-import HomeScreen from './screens/HomeScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import SettingsScreen from './src/screens/SettingsScreen'
 
 // Ignore isMounted() deprecated warning
 import { YellowBox } from 'react-native';
@@ -23,25 +24,12 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTIm
 export default class App extends Component {
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: '#f2f2f2'}}>
-        <AppTabNavigator />
-      </SafeAreaView>
+      <AppTabNavigator />
     )
   }
 };
 
-
-class SettingsScreen extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Set</Text>
-      </View>
-    );
-  }
-};
-
-const AppTabNavigator = createMaterialTopTabNavigator({
+const AppTabNavigator = createBottomTabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: {
@@ -59,12 +47,15 @@ const AppTabNavigator = createMaterialTopTabNavigator({
   tabBarOptions: {
     activeTintColor: 'black',
     inactiveTintColor: 'grey',
+    showIcon: false,
+    labelStyle: {
+      fontSize: 20,
+    },
     style: {
       backgroundColor: '#f2f2f2',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
-    indicatorStyle: {
-      backgroundColor: 'black',
-    }
   }
 });
 

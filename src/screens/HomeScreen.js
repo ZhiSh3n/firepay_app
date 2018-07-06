@@ -12,7 +12,15 @@ import { createStackNavigator } from 'react-navigation';
 import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
-class HomeScreen extends Component {
+export default class HomeScreen extends Component {
+  render() {
+    return (
+      <AppStackNavigator />
+    );
+  }
+}
+
+class Page extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -32,31 +40,40 @@ class HomeScreen extends Component {
           PopToTop
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.defaultButton}
+        onPress={() => this.props.navigation.navigate('ExtraScreen')}>
+        <Text
+          style={styles.defaultButtonText}>
+          Extra
+        </Text>
+      </TouchableOpacity>
       </View>
     );
   }
 };
-export default HomeScreen;
+
+class Extra extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>
+        hi
+        </Text>
+      </View>
+    );
+  }
+};
+
+const AppStackNavigator = createStackNavigator({
+  PageScreen: Page,
+  ExtraScreen: Extra,
+})
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  defaultButton: {
-    zIndex: 10,
-    backgroundColor: 'green',
-    width: 80,
-    height: 80,
-    borderRadius: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 10,
-  },
-  defaultButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    marginBottom: 1,
   },
 });
