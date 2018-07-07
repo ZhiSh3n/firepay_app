@@ -1,68 +1,72 @@
+// Native imports
 import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
 } from 'react-native';
 
-// Import navigation
-import { createBottomNavigator } from 'react-navigation';
+// Navigation imports
 import { createBottomTabNavigator } from 'react-navigation';
 
+// Icon imports
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 // Import screens
-import LoginScreen from './src/screens/LoginScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import SettingsScreen from './src/screens/SettingsScreen'
+import HomeStack from './src/HomeStack';
+import Search from './src/Search';
+import Add from './src/Add';
+import Heart from './src/Heart';
+import Profile from './src/Profile';
 
-// Ignore isMounted() deprecated warning
-import { YellowBox } from 'react-native';
-YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
-
-
-export default class App extends Component {
-  render() {
-    return (
-      <AppTabNavigator />
-    )
-  }
-};
-
-const AppTabNavigator = createBottomTabNavigator({
-  Home: {
-    screen: HomeScreen,
-    navigationOptions: {
-      tabBarLabel: 'Home',
-    }
-  },
-  Settings: {
-    screen: SettingsScreen,
-    navigationOptions: {
-      tabBarLabel: 'Settings',
-    }
-  },
+export default createBottomTabNavigator({
+  Home: { screen: HomeStack },
+  Search: { screen: Search },
+  Add: { screen: Add },
+  Heart: { screen: Heart },
+  Profile: { screen: Profile },
 }, {
   initialRouteName: 'Home',
+  // order:
   tabBarOptions: {
     activeTintColor: 'black',
-    inactiveTintColor: 'grey',
-    showIcon: false,
-    labelStyle: {
-      fontSize: 20,
-    },
+    inactiveTintColor: 'black',
+    // activeBackgroundColor: 'black',
+    // inactiveBackgroundColor: 'black',
+    showLabel: false,
+    // showIcon: false,
     style: {
-      backgroundColor: '#f2f2f2',
-      alignItems: 'center',
-      justifyContent: 'center',
+      borderTopWidth: 1,
+      borderTopColor: 'black',
     },
-  }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // tabStyle: { backgroundColor: 'blue', },
+    // labelStyle: {},
   },
+  navigationOptions: ({ navigation }) => ({
+    // tabBarVisible: false,
+    tabBarIcon: ({ focused, tintColor }) => {
+      const { routeName } = navigation.state;
+      let iconName;
+      // Uses ECMAScript 6 Template Literals to create variable strings
+      if (routeName === 'Home') {
+        iconName = `home${focused ? '' : '-outline'}`;
+        return <MaterialCommunityIcons name={iconName} size={40} color={tintColor} />;
+      } else if (routeName === 'Search') {
+        iconName = `ios-search${focused ? '' : '-outline'}`;
+        return <Ionicons name={iconName} size={40} color={tintColor} />;
+      } else if (routeName === 'Add') {
+        iconName = `ios-add-circle${focused ? '' : '-outline'}`;
+        return <Ionicons name={iconName} size={40} color={tintColor} />;
+      } else if (routeName === 'Heart') {
+        iconName = `md-heart${focused ? '' : '-outline'}`;
+        return <Ionicons name={iconName} size={40} color={tintColor} />;
+      } else if (routeName === 'Profile') {
+        iconName = `person${focused ? '' : '-outline'}`;
+        return <MaterialIcons name={iconName} size={40} color={tintColor} />;
+      }
+    },
+  }),
 });
