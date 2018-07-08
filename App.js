@@ -40,7 +40,7 @@ export default createBottomTabNavigator({
     // showIcon: false,
     style: {
       borderTopWidth: 1,
-      borderTopColor: 'black',
+      borderTopColor: 'grey',
     },
     // tabStyle: { backgroundColor: 'blue', },
     // labelStyle: {},

@@ -3,14 +3,16 @@ import {Platform, StyleSheet, Text, View, Easing, Animated} from 'react-native';
 
 import { createStackNavigator } from 'react-navigation';
 
-import HomeStackHome from './HomeStackHome';
-import HomeStackDirect from './HomeStackDirect';
-import HomeStackCamera from './HomeStackCamera';
+import HomeStackHome from './HomeStack/HomeStackHome';
+import HomeStackDirect from './HomeStack/HomeStackDirect';
+import HomeStackCamera from './HomeStack/HomeStackCamera';
+import HomeStackNewMessage from './HomeStack/HomeStackNewMessage';
 
 export default createStackNavigator({
   HomeStackHome: { screen: HomeStackHome },
   HomeStackDirect: { screen: HomeStackDirect },
   HomeStackCamera: { screen: HomeStackCamera },
+  HomeStackNewMessage: { screen: HomeStackNewMessage },
 }, {
   mode: 'card',
   headerMode: 'screen',
