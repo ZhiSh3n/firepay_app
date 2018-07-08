@@ -20,6 +20,9 @@ export default class HomeStackHome extends Component<Props> {
         <TouchableOpacity
           onPress={() => navigation.navigate({
             routeName: 'HomeStackCamera',
+            params: {
+              transition: 'swipeRight',
+            },
           })}
           style={styles.headerLeftStyle}>
           <Feather name={'camera'} size={35} color={'black'} />
@@ -35,7 +38,7 @@ export default class HomeStackHome extends Component<Props> {
           onPress={() => navigation.navigate({
             routeName: 'HomeStackDirect',
             params: {
-              transition: 'myCustomTransition',
+              transition: 'swipeLeft',
             },
           })}
           style={styles.headerRightStyle}>
