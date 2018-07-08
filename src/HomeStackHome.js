@@ -18,7 +18,9 @@ export default class HomeStackHome extends Component<Props> {
       title: 'Instagram',
       headerLeft: (
         <TouchableOpacity
-          onPress={() => navigation.navigate('HomeStackCamera')}
+          onPress={() => navigation.navigate({
+            routeName: 'HomeStackCamera',
+          })}
           style={styles.headerLeftStyle}>
           <Feather name={'camera'} size={35} color={'black'} />
         </TouchableOpacity>
@@ -30,7 +32,12 @@ export default class HomeStackHome extends Component<Props> {
       },
       headerRight: (
         <TouchableOpacity
-          onPress={() => navigation.navigate('HomeStackDirect')}
+          onPress={() => navigation.navigate({
+            routeName: 'HomeStackDirect',
+            params: {
+              transition: 'myCustomTransition',
+            },
+          })}
           style={styles.headerRightStyle}>
           <FontAwesome name={'paper-plane-o'} size={30} color={'black'} />
         </TouchableOpacity>
