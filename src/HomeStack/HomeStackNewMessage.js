@@ -6,9 +6,11 @@ export default class HomeStackNewMessage extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          Huh
-        </Text>
+        <View style={styles.centerContainer}>
+          <Text style={styles.whiteText}>
+            skyblue
+          </Text>
+        </View>
       </View>
     );
   }
@@ -17,9 +19,16 @@ export default class HomeStackNewMessage extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'skyblue',
+  },
+  centerContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
+  },
+  whiteText: {
+    fontSize: 20,
+    color: 'white',
   },
   headerLeftStyle: {
     marginLeft: 15,

@@ -30,9 +30,11 @@ export default class HomeStackDirect extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          Profile
-        </Text>
+        <View style={styles.centerContainer}>
+          <Text style={styles.whiteText}>
+            cornflowerblue
+          </Text>
+        </View>
       </View>
     );
   }
@@ -41,9 +43,16 @@ export default class HomeStackDirect extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'cornflowerblue',
+  },
+  centerContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
+  },
+  whiteText: {
+    fontSize: 20,
+    color: 'white',
   },
   headerLeftStyle: {
     marginLeft: 15,

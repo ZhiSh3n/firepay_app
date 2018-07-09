@@ -10,7 +10,6 @@ import { createStackNavigator } from 'react-navigation';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
-
 type Props = {};
 export default class HomeStackHome extends Component<Props> {
   static navigationOptions = ({ navigation }) => {
@@ -50,12 +49,11 @@ export default class HomeStackHome extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('HomeStackDirect')}>
-          <Text>
-            Direct
+        <View style={styles.centerContainer}>
+          <Text style={styles.whiteText}>
+            royalblue
           </Text>
-        </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -64,9 +62,16 @@ export default class HomeStackHome extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'royalblue',
+  },
+  centerContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'yellow',
+  },
+  whiteText: {
+    fontSize: 20,
+    color: 'white',
   },
   headerLeftStyle: {
     marginLeft: 15,

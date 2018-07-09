@@ -26,9 +26,11 @@ export default class HomeStackCamera extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          Profile
-        </Text>
+        <View style={styles.centerContainer}>
+          <Text style={styles.whiteText}>
+            lightblue
+          </Text>
+        </View>
       </View>
     );
   }
@@ -37,9 +39,16 @@ export default class HomeStackCamera extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'lightblue',
+  },
+  centerContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+  },
+  whiteText: {
+    fontSize: 20,
+    color: 'white',
   },
   headerLeftStyle: {
     marginLeft: 15,
